@@ -1,0 +1,11 @@
+python-dotenv
+tqdm==4.67.1
+
+numpy
+pandas
+
+mistralai
+google
+google-genai
+
+sacrebleu
