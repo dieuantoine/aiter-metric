@@ -2,7 +2,7 @@ from src.llm_api.llm_api_call import create_client, call_api
 from src.utils.utils import load_prompt
 import pandas as pd
 from tqdm import tqdm
-from config import PROMPTS
+from config import PROMPTS, PROMPTS_DIR
 
 class Request:
     def __init__(self, req: str = "", ref: str = "", con: str = ""):
@@ -31,15 +31,13 @@ def reformulate(client, base_prompt: str, reformulation_model: str, request: Req
     return call_api(client, prompt, model=reformulation_model)
 
 def create_reformulations(df, reformulation_model, version):
-    base_prompts = [load_prompt(prompt_basepath+version) for prompt_basepath in PROMPTS[version]["paths"]]
+    base_prompts = [load_prompt(PROMPTS_DIR / f'{prompt_basepath}_{version}.txt') for prompt_basepath in PROMPTS[version]["paths"]]
     steps = PROMPTS[version]["steps"]
-    mask = df['filtered_hypothesis'].isna()
-    if mask.any():
-        client = create_client()
-        for idx in tqdm(df[mask].index, desc="Reformulation"):
-            request = Request.from_series(df.loc[idx])
-            hypothesis = df.loc[idx, 'hypothesis']
-            for i in range(len(steps)):
-                hypothesis = reformulate(client, base_prompts[i], reformulation_model, request, hypothesis)
-                df.at[idx, steps[i]] = hypothesis
+    client = create_client(reformulation_model)
+    for idx in tqdm(df.index, desc="Reformulation"):
+        request = Request.from_series(df.loc[idx])
+        hypothesis = df.loc[idx, 'hypothesis']
+        for i in range(len(steps)):
+            hypothesis = reformulate(client, base_prompts[i], reformulation_model, request, hypothesis)
+            df.at[idx, steps[i]] = hypothesis
     return df

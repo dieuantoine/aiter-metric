@@ -17,4 +17,4 @@ MODELS_CONFIG = load_yaml(BASE_DIR / "config" / "models.yaml")
 
 # Prompts files 
 PROMPTS_DIR = BASE_DIR / "prompts"
-PROMPTS = load_yaml(BASE_DIR / "config" / "prompts.yaml")
+PROMPTS = load_yaml(BASE_DIR / "config" / "versions.yaml")

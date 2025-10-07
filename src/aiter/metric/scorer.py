@@ -1,6 +1,4 @@
 import pandas as pd
-from datetime import datetime
-import os
 
 from src.aiter.metric.reformulation import create_reformulations
 from src.aiter.metric.ter_computation import compute_scores
@@ -21,5 +19,5 @@ class Scorer:
         return
     
     def scoring(self):
-        self.df = compute_scores(self.df, method=self.version)
+        self.df = compute_scores(self.df, self.version)
         return

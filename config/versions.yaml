@@ -1,16 +1,16 @@
-1:
+"1":
   paths:
     - correction_prompt
   steps:
     - corrected_hypothesis
-2:
+"2":
   paths:
     - off_topic_prompt
     - correction_prompt
   setps:
     - filtered_hypothesis
     - corrected_hypothesis
-3:
+"3":
   paths:
     - off_topic_prompt
     - correction_prompt
