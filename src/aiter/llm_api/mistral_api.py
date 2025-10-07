@@ -1,6 +1,6 @@
 import time
 from mistralai import Mistral
-from src.aiter.config import MISTRAL_API_KEY
+from ..config import MISTRAL_API_KEY
 
 def create_mistral_client():
     return Mistral(api_key=MISTRAL_API_KEY)
