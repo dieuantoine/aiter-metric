@@ -1,9 +1,7 @@
-import pandas as pd
-
 from src.aiter.metric.reformulation import create_reformulations
 from src.aiter.metric.ter_computation import compute_scores
 
-from config import MODELS_CONFIG
+from src.aiter.config import MODELS_CONFIG
 
 cols = {"1": ["corrected_hypothesis", "score"], 
         "2": ["filtered_hypothesis", "corrected_hypothesis", "cor_score", "ot_score", "score"]}

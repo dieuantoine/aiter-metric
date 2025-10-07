@@ -1,8 +1,8 @@
-from src.llm_api.llm_api_call import create_client, call_api
-from src.utils.utils import load_prompt
+from src.aiter.llm_api.llm_api_call import create_client, call_api
+from src.aiter.utils.utils import load_prompt
 import pandas as pd
 from tqdm import tqdm
-from config import PROMPTS, PROMPTS_DIR
+from src.aiter.config import PROMPTS, PROMPTS_DIR
 
 class Request:
     def __init__(self, req: str = "", ref: str = "", con: str = ""):

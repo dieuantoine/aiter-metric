@@ -1,6 +1,6 @@
-from src.llm_api.googleai_api import create_googleai_client, call_googleai_api
-from src.llm_api.mistral_api import create_mistral_client, call_mistral_api
-from config import MODELS_CONFIG
+from src.aiter.llm_api.googleai_api import create_googleai_client, call_googleai_api
+from src.aiter.llm_api.mistral_api import create_mistral_client, call_mistral_api
+from src.aiter.config import MODELS_CONFIG
 
 API_CLIENTS = {
     "gemini": create_googleai_client,
