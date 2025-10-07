@@ -1,5 +1,5 @@
 from ..llm_api.llm_api_call import create_client, call_api
-from ..utils.utils import load_prompt
+from ..utils import load_prompt
 import pandas as pd
 from tqdm import tqdm
 from ..config import PROMPTS, PROMPTS_DIR
