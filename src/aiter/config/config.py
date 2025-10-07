@@ -5,6 +5,18 @@ import yaml
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 
+def get_api_key(api) -> str | None:
+    return os.getenv("MISTRAL_API_KEY") if api == "mistral" else os.getenv("GOOGLE_API_KEY") if api == "gemini" else None
+
+def require_api_key(api) -> str:
+    key = get_api_key(api)
+    if not key:
+        raise RuntimeError(
+            "Missing API_KEY. "
+            "Set it as an environment variable or pass it explicitly to the Scorer(api_key=...) constructor."
+        )
+    return key
+
 
 def _read_yaml_safe(package: str, rel_in_pkg: str, rel_in_repo: str):
     """

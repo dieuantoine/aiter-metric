@@ -30,10 +30,10 @@ def reformulate(client, base_prompt: str, reformulation_model: str, request: Req
     prompt = format_prompt(base_prompt, request, hypothesis)
     return call_api(client, prompt, model=reformulation_model)
 
-def create_reformulations(df, reformulation_model, version):
+def create_reformulations(df, reformulation_model, version, api_key):
     base_prompts = [load_prompt(PROMPTS_DIR / f'{prompt_basepath}_{version}.txt') for prompt_basepath in PROMPTS[version]["paths"]]
     steps = PROMPTS[version]["steps"]
-    client = create_client(reformulation_model)
+    client = create_client(reformulation_model, api_key)
     for idx in tqdm(df.index, desc="Reformulation"):
         request = Request.from_series(df.loc[idx])
         hypothesis = df.loc[idx, 'hypothesis']

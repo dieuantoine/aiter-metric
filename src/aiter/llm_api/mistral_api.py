@@ -1,9 +1,8 @@
 import time
 from mistralai import Mistral
-from ..config import MISTRAL_API_KEY
 
-def create_mistral_client():
-    return Mistral(api_key=MISTRAL_API_KEY)
+def create_mistral_client(api_key):
+    return Mistral(api_key=api_key)
 
 def call_mistral_api(client, prompt, model_config, temperature=0.0, call_delay=False, retry_delay=False, max_retries=3):
     if not call_delay:

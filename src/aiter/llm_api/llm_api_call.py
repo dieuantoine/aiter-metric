@@ -12,9 +12,9 @@ API_CALLS = {
     "mistral": call_mistral_api
 }
 
-def create_client(model):
+def create_client(model, api_key):
     api_name = MODELS_CONFIG[model]["api"]
-    return API_CLIENTS[api_name]()
+    return API_CLIENTS[api_name](api_key)
 
 
 def call_api(client, prompt, model, **kwargs):
