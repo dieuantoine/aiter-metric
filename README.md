@@ -18,16 +18,16 @@ For each input **request** (the user question), we consider:
 The pipeline runs in three stages:
 
 1. **Off-topic filtering (LLM):**
-   Using the **context**, an LLM removes irrelevant or out-of-scope fragments from the **hypothesis**, producing a **filtered hypothesis** that only keeps content actually addressing the request.
+   Using the context, an LLM removes irrelevant or out-of-scope fragments from the hypothesis, producing a filtered hypothesis that only keeps content actually addressing the request.
 
 2. **Correction (LLM):**
-   Using the **reference** and **context**, an LLM produces a **corrected hypothesis** that minimally edits the hypothesis to make it factually consistent.
+   Using the reference and context, an LLM produces a corrected hypothesis that minimally edits the hypothesis to make it factually consistent.
 
 3. **Edit-distance scoring (TER):**
    We compute [**TER (Translation Edit Rate)**](https://aclanthology.org/2006.amta-papers.25/) to quantify both veracity and tendency to digress:
 
-   * `TER(hypothesis → corrected_hypothesis)` — how much the original answer must change to be factually correct (**veracity**).
-   * `TER(hypothesis → filtered_hypothesis)` — how much unrelated content had to be removed (**off-topic / rambling propensity**).
+   * `TER(hypothesis → corrected_hypothesis)` — how much the original answer must change to be factually correct.
+   * `TER(hypothesis → filtered_hypothesis)` — how much unrelated content had to be removed.
    * `TER(filtered_hypothesis → corrected_hypothesis)` — how much of the relevant content is factually correct.
 
 Lower TER means fewer edits are needed.
