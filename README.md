@@ -92,6 +92,7 @@ You must also pass a `version` dictionary to select the method and language:
   (e.g., `"gemini-2.5-pro"` or `"mistral-medium-latest"`)
 
 The method `get_available_models()` returns a list of all supported Gemini and Mistral model identifiers available for use in the `REFORMULATION_MODEL` parameter.
+
 French ("fr") is available for all code versions (1, 2, and 3), while English ("en") is currently supported only for version 3.
 
 ### Output
