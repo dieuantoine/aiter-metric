@@ -91,9 +91,11 @@ You must also pass a `version` dictionary to select the method and language:
 * `REFORMULATION_MODEL`: the **Gemini** or **Mistral** model name to use for filtering/correction
   (e.g., `"gemini-2.5-pro"` or `"mistral-medium-latest"`)
 
+The method `get_available_models()` returns a list of all supported Gemini and Mistral model identifiers available for use in the `REFORMULATION_MODEL` parameter.
+
 ### Output
 
-After calling the methods `reformulation()` and `scoring()`, `self.df` returns a pandas DataFrame aligned with your input, enriched with additional columns that describe the different processing stages and scores:
+After calling the methods `reformulation()` and `scoring()`, the `results` attribute returns a dictionary containing the aggregated mean scores over all evaluated examples and `df` returns a pandas DataFrame aligned with your input, enriched with additional columns that describe the different processing stages and scores:
 
 | Column                 | Description                                                                                                                                                                                      |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

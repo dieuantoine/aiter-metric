@@ -15,4 +15,6 @@ def compute_scores(df, version):
             if version in ["2", "3"]:
                 df.at[idx, 'cor_score'] = compute_ter(ter, df.at[idx, 'corrected_hypothesis'], df.at[idx, 'filtered_hypothesis'])
                 df.at[idx, 'ot_score'] = compute_ter(ter, df.at[idx, 'filtered_hypothesis'], df.at[idx, 'hypothesis'])
+    else:
+        raise ValueError("Run reformulation before computing the TER.")
     return df
