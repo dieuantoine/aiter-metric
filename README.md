@@ -141,7 +141,7 @@ scorer = Scorer(
 scorer.reformulation()
 scorer.scoring()
 
-print(scorer.head())
+print(scorer.df.head())
 ```
 
 </details>
