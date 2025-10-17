@@ -2,8 +2,8 @@ import time
 from google import genai
 from google.genai import types
 
-def create_googleai_client(api_key):
-    return genai.Client(api_key)
+def create_googleai_client(gemini_api_key):
+    return genai.Client(api_key=gemini_api_key)
 
 def call_googleai_api(client, prompt, model_config, temperature=0.0, call_delay=False, retry_delay=False, max_retries=3):
     if not call_delay:
