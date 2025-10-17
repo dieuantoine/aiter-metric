@@ -86,12 +86,14 @@ from aiter import Scorer
 
 You must also pass a `version` dictionary to select the method and language:
 
-* `CODE_VERSION`: `1`, `2`, or `3` (**recommended: `3`**)
+* `CODE_VERSION`: `"1"`, `"2"`, or `"3"` (**recommended: `"3"`**)
 * `LANG`: language of your data (`"en"`, `"fr"`)
 * `REFORMULATION_MODEL`: the **Gemini** or **Mistral** model name to use for filtering/correction
   (e.g., `"gemini-2.5-pro"` or `"mistral-medium-latest"`)
 
 The method `get_available_models()` returns a list of all supported Gemini and Mistral model identifiers available for use in the `REFORMULATION_MODEL` parameter.
+
+French ("fr") is available for all code versions ("1", "2", and "3"), while English ("en") is currently supported only for version 3.
 
 ### Output
 
@@ -125,7 +127,7 @@ df = pd.DataFrame([
 ])
 
 version = {
-    "CODE_VERSION": 3,
+    "CODE_VERSION": "3",
     "LANG": "en",
     "REFORMULATION_MODEL": "gemini-2.5-pro"
 }
