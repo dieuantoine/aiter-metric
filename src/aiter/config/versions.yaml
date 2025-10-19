@@ -7,7 +7,7 @@
   paths:
     - off_topic_prompt
     - correction_prompt
-  setps:
+  steps:
     - filtered_hypothesis
     - corrected_hypothesis
 "3":
