@@ -1,7 +1,7 @@
 gemini-2.5-pro:
   name: gemini-2.5-pro
   api: gemini
-  call_delay: 20.0
+  call_delay: 5.0
   retry_delay: 30.0
 
 gemini-2.5-flash:
