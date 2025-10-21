@@ -5,7 +5,7 @@ import yaml
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 
-def get_api_key(api) -> str | None:
+def get_api_key(api):
     return os.getenv("MISTRAL_API_KEY") if api == "mistral" else os.getenv("GOOGLE_API_KEY") if api == "gemini" else None
 
 def require_api_key(api) -> str:
